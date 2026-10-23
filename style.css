@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
+
 :root {
     --parchment: #F3EDE1;
     --ink: #081B1B;
@@ -11,12 +13,21 @@ body {
     display: grid;
     place-items: center;
     min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    margin: 0;  
+    font-family: 'Inter', Arial, sans-serif;
     background-color: var(--parchment);
     color: var(--ink);
 }
 
 h1 {
+   
+h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
     color: var(--burgundy);
+}
+
 }
