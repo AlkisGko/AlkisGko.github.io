@@ -1,10 +1,22 @@
 
+:root {
+    --parchment: #F3EDE1;
+    --ink: #081B1B;
+    --burgundy: #701222;
+    --teal: #23696B;
+    --gold: #A18A6C;
+}
+
 body {
     display: grid;
     place-items: center;
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f9fb;
-    color: #242b38;
+    background-color: var(--parchment);
+    color: var(--ink);
+}
+
+h1 {
+    color: var(--burgundy);
 }
