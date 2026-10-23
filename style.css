@@ -1,0 +1,10 @@
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fb;
+    color: #242b38;
+}
