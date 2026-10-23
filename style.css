@@ -31,3 +31,22 @@ h1 {
 }
 
 }
+
+.hero {
+    width: min(90%, 900px);
+    text-align: center;
+}
+
+.eyebrow {
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+}
+
+.hero-description {
+    max-width: 38rem;
+    margin: 1.5rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
