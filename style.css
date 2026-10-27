@@ -54,16 +54,26 @@ nav a:hover {
 
 /* Hero */
 
+
 .hero {
-    width: min(90%, 900px);
+    width: min(90%, 1200px);
     min-height: calc(100vh - 120px);
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 3rem;
 }
+
+.hero-content {
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+}
+
 
 .eyebrow {
     color: var(--teal);
@@ -83,7 +93,7 @@ h1 {
 
 .hero-description {
     max-width: 38rem;
-    margin: 1.5rem auto 0;
+    margin: 1.5rem 0 0;
     font-size: 1.1rem;
     line-height: 1.7;
 }
@@ -98,5 +108,67 @@ h1 {
     nav {
         justify-content: center;
         gap: 1rem;
+    }
+}
+
+/* Temporary geometric artwork */
+
+.hero-art {
+    position: relative;
+    width: min(100%, 450px);
+    aspect-ratio: 1;
+    justify-self: end;
+}
+
+.art-circle {
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--burgundy) 0deg 90deg,
+        var(--ink) 90deg 180deg,
+        var(--teal) 180deg 270deg,
+        var(--ink) 270deg 360deg
+    );
+}
+
+.art-circle::after {
+    content: "";
+    position: absolute;
+    inset: -14%;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+}
+
+.art-dot {
+    position: absolute;
+    width: 14%;
+    aspect-ratio: 1;
+    top: 5%;
+    right: 4%;
+    border-radius: 50%;
+    background: var(--burgundy);
+}
+
+/* Responsive hero */
+
+@media (max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 0;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-description {
+        margin: 1.5rem auto 0;
+    }
+
+    .hero-art {
+        width: min(75vw, 320px);
+        justify-self: center;
     }
 }
