@@ -147,15 +147,64 @@ h1 {
 
 /* Independent satellite */
 
+
+/* Orbiting satellite */
+
 .art-dot {
     position: absolute;
     width: 12%;
     aspect-ratio: 1;
-    top: 4%;
-    right: 5%;
+    top: 50%;
+    left: 50%;
+    right: auto;
+
     border-radius: 50%;
     background-color: var(--burgundy);
+    box-shadow: 0 0 0 1px var(--gold);
+
+    animation: satellite-orbit 7s linear infinite;
+    animation-play-state: paused;
 }
+
+@keyframes satellite-orbit {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(45deg)
+            translateY(-350%)
+            rotate(-45deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(405deg)
+            translateY(-350%)
+            rotate(-405deg);
+    }
+}
+
+/* Animate only when hovering with a mouse */
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-art:hover .art-dot {
+        animation-play-state: running;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .art-dot {
+        animation: none;
+        transform:
+            translate(-50%, -50%)
+            rotate(45deg)
+            translateY(-350%)
+            rotate(-45deg);
+    }
+}
+
 
 /* Responsive hero */
 
