@@ -175,7 +175,7 @@ h1 {
     }
 
     .hero-art {
-        width: min(85vw, 360px);
+        width: min(85vw, 400px);
         justify-self: center;
     }
 }
