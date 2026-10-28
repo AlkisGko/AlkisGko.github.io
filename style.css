@@ -198,6 +198,18 @@ h1 {
     border-radius: 2px;
     opacity: 1;
     cursor: default;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
 }
 
 /* Primary button */
@@ -222,4 +234,20 @@ h1 {
     .hero-actions {
         justify-content: center;
     }
+}
+
+/* Hero button hover effects */
+
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(8, 27, 27, 0.12);
+}
+
+.hero-button-primary:hover {
+    background-color: #8C2638;
+}
+
+.hero-button-secondary:hover {
+    background-color: rgba(112, 18, 34, 0.06);
+    border-color: var(--burgundy);
 }
