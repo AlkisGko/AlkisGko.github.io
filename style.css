@@ -113,41 +113,33 @@ h1 {
 
 /* Temporary geometric artwork */
 
+
+/* Hero artwork */
+
 .hero-art {
     position: relative;
-    width: min(100%, 450px);
+    width: min(100%, 500px);
     aspect-ratio: 1;
     justify-self: end;
 }
 
-.art-circle {
-    position: absolute;
-    inset: 15%;
-    border-radius: 50%;
-    background: conic-gradient(
-        var(--burgundy) 0deg 90deg,
-        var(--ink) 90deg 180deg,
-        var(--teal) 180deg 270deg,
-        var(--ink) 270deg 360deg
-    );
+.hero-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.art-circle::after {
-    content: "";
-    position: absolute;
-    inset: -14%;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-}
+/* Independent satellite */
 
 .art-dot {
     position: absolute;
-    width: 14%;
+    width: 12%;
     aspect-ratio: 1;
-    top: 5%;
-    right: 4%;
+    top: 4%;
+    right: 5%;
     border-radius: 50%;
-    background: var(--burgundy);
+    background-color: var(--burgundy);
 }
 
 /* Responsive hero */
@@ -168,37 +160,7 @@ h1 {
     }
 
     .hero-art {
-        width: min(75vw, 320px);
+        width: min(85vw, 400px);
         justify-self: center;
     }
-}
-
-/* Geometric guide lines */
-
-.hero-art::before,
-.hero-art::after {
-    content: "";
-    position: absolute;
-    background-color: var(--gold);
-    opacity: 0.7;
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Horizontal line */
-
-.hero-art::before {
-    width: 100%;
-    height: 1px;
-    top: 50%;
-    left: 0;
-}
-
-/* Vertical line */
-
-.hero-art::after {
-    width: 1px;
-    height: 100%;
-    top: 0;
-    left: 50%;
 }
