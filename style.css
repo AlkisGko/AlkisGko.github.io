@@ -119,7 +119,7 @@ h1 {
 
 .hero-art {
     position: relative;
-    width: min(100%, 550px);
+    width: min(100%, 530px);
     aspect-ratio: 1;
     justify-self: end;
 }
