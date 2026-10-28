@@ -341,7 +341,7 @@ h1 {
 
 @media (min-width: 801px) {
     .hero-content {
-        transform: translateY(-2.5rem);
+        transform: translateY(-3rem);
     }
 }
 
