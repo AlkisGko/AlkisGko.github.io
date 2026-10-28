@@ -144,10 +144,6 @@ h1 {
     );
 }
 
-
-/* Independent satellite */
-
-
 /* Orbiting satellite */
 
 .art-dot {
@@ -156,33 +152,39 @@ h1 {
     aspect-ratio: 1;
     top: 50%;
     left: 50%;
-    right: auto;
 
     border-radius: 50%;
-    background-color: var(--burgundy);
-    box-shadow: 0 0 0 1px var(--gold);
 
-    animation: satellite-orbit 7s linear infinite;
-    animation-play-state: paused;
+    /* Textured burgundy surface */
+    background:
+        radial-gradient(
+            circle at 28% 25%,
+            rgba(243, 237, 225, 0.25),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 75% 75%,
+            rgba(8, 27, 27, 0.4),
+            transparent 55%
+        ),
+        repeating-linear-gradient(
+            125deg,
+            transparent 0 4px,
+            rgba(243, 237, 225, 0.045) 4px 5px
+        ),
+        var(--burgundy);
+
+    box-shadow:
+        0 0 0 1px var(--gold),
+        inset -4px -4px 8px rgba(8, 27, 27, 0.15);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg)
+        translateY(-350%)
+        rotate(-45deg);
 }
 
-@keyframes satellite-orbit {
-    from {
-        transform:
-            translate(-50%, -50%)
-            rotate(45deg)
-            translateY(-350%)
-            rotate(-45deg);
-    }
-
-    to {
-        transform:
-            translate(-50%, -50%)
-            rotate(405deg)
-            translateY(-350%)
-            rotate(-405deg);
-    }
-}
 
 /* Animate only when hovering with a mouse */
 
