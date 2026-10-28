@@ -336,3 +336,12 @@ h1 {
     background-color: rgba(112, 18, 34, 0.06);
     border-color: var(--burgundy);
 }
+
+/* Fine-tune hero positioning on larger screens */
+
+@media (min-width: 801px) {
+    .hero-content {
+        transform: translateY(-2.5rem);
+    }
+}
+
