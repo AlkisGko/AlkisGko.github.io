@@ -72,15 +72,49 @@ nav a:hover {
 
 .hero h1 {
     font-size: clamp(2.8rem, 5vw, 4.5rem);
+    margin: 0;
 }
 
 
-.eyebrow {
+/* Hero introduction */
+
+.hero-intro {
+    margin: 0 0 0.65rem;
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+/* Two-colour name */
+
+.first-name {
+    color: var(--ink);
+}
+
+.last-name {
+    color: var(--burgundy);
+}
+
+/* Professional specialisms */
+
+.hero-role {
+    margin: 1rem 0 0;
     color: var(--teal);
-    font-size: 0.75rem;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
 }
+
+/* Download icon alignment */
+
+.hero-button-secondary {
+    gap: 0.6rem;
+}
+
+.hero-button-secondary svg {
+    flex-shrink: 0;
+}
+
 
 h1 {
     font-family: 'Libre Baskerville', Georgia, serif;
