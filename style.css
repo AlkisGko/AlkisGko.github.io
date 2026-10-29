@@ -470,3 +470,17 @@ h1 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Smooth navigation between sections */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
