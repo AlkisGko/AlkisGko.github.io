@@ -663,3 +663,11 @@ html {
         margin-top: 0.25rem;
     }
 }
+
+/* Align education institution headings */
+
+@media (min-width: 851px) {
+    .education-entry:last-child {
+        padding-top: 3rem;
+    }
+}
