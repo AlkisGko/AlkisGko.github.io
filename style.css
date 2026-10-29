@@ -585,30 +585,81 @@ html {
 
 @media (min-width: 851px) {
 
+    /* Overall section spacing */
+
     .experience-panel,
     .contact-panel {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     .experience-panel h2 {
-        margin: 0.5rem 0 1rem;
+        font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+        margin: 0.4rem 0 0.6rem;
     }
 
+    .experience-intro {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    /* Condensed career timeline */
+
     .career-list {
-        margin: 1.75rem 0;
+        margin: 1.4rem 0;
     }
 
     .career-entry {
-        margin-bottom: 1.1rem;
+        margin-bottom: 0.8rem;
     }
 
+    .career-entry h3 {
+        font-size: 1.05rem;
+        margin: 0 0 0.15rem;
+    }
+
+    .career-role,
+    .career-tools {
+        display: inline;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .career-role::after {
+        content: " · ";
+        color: var(--gold);
+    }
+
+    /* Education in two columns */
+
     .education-block {
-        padding-top: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .education-block > .section-label {
+        grid-column: 1 / -1;
+        margin: 0;
     }
 
     .education-entry {
-        margin-top: 0.85rem;
+        margin-top: 0;
     }
 
+    .education-entry h3 {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .education-institution {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .education-skills {
+        margin-top: 0.25rem;
+    }
 }
