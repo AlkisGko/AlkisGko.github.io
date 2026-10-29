@@ -1,155 +1,208 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alkis Gkogkas</title>
-    <link rel="stylesheet" href="style.css">    
-    <script src="hero.js" defer>  </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="hero.js" defer></script>
 </head>
 <body>
 
     <header class="site-header">
         <a href="/" class="logo">AG</a>
-
         <nav aria-label="Main navigation">
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
-            <a href="#about">About</a>
+            <span class="nav-placeholder">About</span>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    
-<main>
-    <section class="hero">
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-intro">Hello, I'm</p>
 
+                <h1>
+                    <span class="first-name">Alkis</span>
+                    <span class="last-name">Gkogkas</span>
+                </h1>
 
-<div class="hero-content">
+                <p class="hero-role">CRM · DATA · MARKETING AUTOMATION</p>
 
-    <p class="hero-intro">Hello, I'm</p>
+                <p class="hero-description">
+                    I help organisations turn data into meaningful
+                    customer experiences, through intelligent CRM,
+                    automation and analytics
+                </p>
 
-    <h1>
-        <span class="first-name">Alkis</span>
-        <span class="last-name">Gkogkas</span>
-    </h1>
+                <!-- Decorative placeholders; activate when destinations exist -->
+                <div class="hero-actions">
+                    <span class="hero-button hero-button-primary">
+                        Explore Projects &rarr;
+                    </span>
 
-    <p class="hero-role">
-        CRM · DATA · MARKETING AUTOMATION
-    </p>
+                    <span class="hero-button hero-button-secondary">
+                        Download CV
+                        <svg width="18" height="18" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round"
+                             aria-hidden="true">
+                            <path d="M12 3v12m-5-5 5 5 5-5"/>
+                            <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
 
-    <p class="hero-description">
-        I help organisations turn data into meaningful 
-        customer experiences, through intelligent CRM,
-        automation and analytics 
-    </p>
+            <div class="hero-art" aria-hidden="true">
+                <img src="hero-geometric-artwork.webp" alt="" class="hero-image">
+                <div class="art-dot"></div>
+            </div>
+        </section>
 
-    <div class="hero-actions">
-        <span class="hero-button hero-button-primary">
-            Explore Projects &rarr;
-        </span>
-
-        <span class="hero-button hero-button-secondary">
-            Download CV
-
-            <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-            >
-                <path d="M12 3v12m-5-5 5 5 5-5"/>
-                <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
-            </svg>
-        </span>
-    </div>
-
-</div>
-
-
-    <div class="hero-art" aria-hidden="true">
-          <img
-        src="hero-geometric-artwork.webp"
-        alt=""
-        class="hero-image"
-    >
-    <div class="art-dot"></div>
-    </div>
-
-
-    </section>
-
-    <section class="projects" id="projects">
-        <div class="projects-inner">
-
-            <div class="projects-heading">
-                <div>
-                    <p class="projects-kicker">
-                        01 / SELECTED PROJECTS
+        <!-- Projects: sample project concepts, not completed case studies -->
+        <section class="projects" id="projects">
+            <div class="projects-inner">
+                <div class="projects-heading">
+                    <div>
+                        <p class="projects-kicker">01 / SELECTED PROJECTS</p>
+                        <h2>Ideas into evidence.</h2>
+                    </div>
+                    <p class="projects-intro">
+                        Independent projects exploring CRM,
+                        analytics and marketing automation.
+                        Coming soon.
                     </p>
-                    <h2>Ideas into evidence.</h2>
                 </div>
 
-                <p class="projects-intro">
-                    Independent projects exploring CRM,
-                    analytics and marketing automation.
-                    Coming soon.
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-visual project-visual--crm"
+                             aria-hidden="true"></div>
+                        <div class="project-copy">
+                            <p class="project-label">CRM / PLANNED</p>
+                            <h3>Customer Lifecycle</h3>
+                            <p>
+                                A future project exploring segmentation,
+                                customer journeys and CRM strategy.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-visual project-visual--data"
+                             aria-hidden="true"></div>
+                        <div class="project-copy">
+                            <p class="project-label">DATA / PLANNED</p>
+                            <h3>Visual Analytics</h3>
+                            <p>
+                                Exploring data visualisation,
+                                dashboards and meaningful insights.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-visual project-visual--automation"
+                             aria-hidden="true"></div>
+                        <div class="project-copy">
+                            <p class="project-label">AUTOMATION / PLANNED</p>
+                            <h3>Automation & APIs</h3>
+                            <p>
+                                Future experiments with workflows,
+                                integrations and automation.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience / Contact split -->
+        <div class="career-contact">
+            <section class="experience-panel" id="experience">
+                <p class="section-label">02 / EXPERIENCE</p>
+                <h2>Experience that connects the dots.</h2>
+                <p class="experience-intro">
+                    Organisations I've worked with and
+                    technologies I've used along the way.
                 </p>
-            </div>
 
-            <div class="projects-grid">
+                <ol class="career-list">
+                    <li class="career-entry">
+                        <div class="career-heading">
+                            <h3>Checkatrade</h3>
+                            <span class="career-duration">7 months</span>
+                        </div>
+                        <p class="career-role">SQL Analyst</p>
+                        <p class="career-tools">Braze · SQL · Tableau · Claude</p>
+                    </li>
 
-                <article class="project-card">
-                    <div class="project-visual project-visual--crm"
-                         aria-hidden="true"></div>
-                    <div class="project-copy">
-                        <p class="project-label">CRM / PLANNED</p>
-                        <h3>Customer Lifecycle</h3>
-                        <p>
-                            A future project exploring segmentation,
-                            customer journeys and CRM strategy.
+                    <li class="career-entry">
+                        <div class="career-heading">
+                            <h3>Rugby Football Union</h3>
+                            <span class="career-duration">2.5 years</span>
+                        </div>
+                        <p class="career-role">CRM Operations Manager</p>
+                        <p class="career-tools">
+                            Unica · Acoustic · Salesforce Data Cloud · Marketing Cloud · SQL
                         </p>
-                    </div>
-                </article>
+                    </li>
 
-                <article class="project-card">
-                    <div class="project-visual project-visual--data"
-                         aria-hidden="true"></div>
-                    <div class="project-copy">
-                        <p class="project-label">DATA / PLANNED</p>
-                        <h3>Visual Analytics</h3>
-                        <p>
-                            Exploring data visualisation,
-                            dashboards and meaningful insights.
+                    <li class="career-entry">
+                        <div class="career-heading">
+                            <h3>Genpact</h3>
+                            <span class="career-duration">1 year</span>
+                        </div>
+                        <p class="career-role">Campaign Manager</p>
+                        <p class="career-tools">Custom Python CRM · SQL</p>
+                    </li>
+
+                    <li class="career-entry">
+                        <div class="career-heading">
+                            <h3>Merkle</h3>
+                            <span class="career-duration">2.5 years</span>
+                        </div>
+                        <p class="career-role">Senior Campaign Consultant</p>
+                        <p class="career-tools">Unica · Acoustic · SQL</p>
+                    </li>
+                </ol>
+
+                <div class="education-block">
+                    <p class="section-label">EDUCATION</p>
+                    <div class="education-entry">
+                        <p class="education-degree">Bachelor's in Marketing</p>
+                        <h3>Technological Educational Institute of Athens</h3>
+                        <p class="education-institution">
+                            Now part of the University of West Attica
                         </p>
+                        <p class="education-skills">Marketing · HTML &amp; CSS</p>
                     </div>
-                </article>
 
-                <article class="project-card">
-                    <div class="project-visual project-visual--automation"
-                         aria-hidden="true"></div>
-                    <div class="project-copy">
-                        <p class="project-label">AUTOMATION / PLANNED</p>
-                        <h3>Automation & APIs</h3>
-                        <p>
-                            Future experiments with workflows,
-                            integrations and automation.
-                        </p>
+                    <div class="education-entry">
+                        <h3>Vyšší odborná škola informačních služeb (VOŠIS)</h3>
+                        <p class="education-institution">Prague · Erasmus Exchange</p>
+                        <p class="education-skills">SQL</p>
                     </div>
-                </article>
+                </div>
+            </section>
 
-            </div>
+            <section class="contact-panel" id="contact">
+                <div class="contact-content">
+                    <p class="contact-kicker">03 / CONTACT</p>
+                    <h2>Let's build something great.</h2>
+                    <p class="contact-description">
+                        Interested in discussing CRM, data
+                        or marketing automation?
+                        I'd love to hear from you.
+                    </p>
+                    <p class="contact-placeholder">Contact details coming soon.</p>
+                </div>
+            </section>
         </div>
-    </section>
-
-</main>
-
-    
+    </main>
 </body>
 </html>
