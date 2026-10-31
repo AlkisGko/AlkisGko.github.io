@@ -778,3 +778,58 @@ html {
         transition: none;
     }
 }
+
+/* Contact text alignment refinement */
+
+@media (min-width: 851px) {
+    .contact-panel {
+        padding-left: clamp(2rem, 4vw, 5rem);
+    }
+}
+
+/* Copyable email */
+
+.contact-email-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.contact-copy-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: var(--parchment);
+    font: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    cursor: copy;
+}
+
+.contact-copy-email span:last-child {
+    overflow-wrap: anywhere;
+}
+
+.contact-copy-email:hover span:last-child {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.contact-copy-email:focus-visible {
+    outline: 2px solid var(--parchment);
+    outline-offset: 4px;
+}
+
+.copy-feedback {
+    color: #E9BFB2;
+    font-size: 0.75rem;
+}
