@@ -829,7 +829,9 @@ html {
     outline-offset: 4px;
 }
 
+
 .copy-feedback {
-    color: #E9BFB2;
+    color: #E0C38E;
     font-size: 0.75rem;
+    font-weight: 600;
 }
