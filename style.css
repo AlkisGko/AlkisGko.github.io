@@ -672,11 +672,11 @@ html {
     }
 }
 
-/* Custom Contact artwork V1 */
+/* Custom Contact artwork V2 */
 
 .contact-panel {
     background-color: var(--burgundy);
-    background-image: url("contact-hexagons.webp");
+    background-image: url("contact-hexagons-v2.webp");
     background-size: cover;
     background-position: right bottom;
     background-repeat: no-repeat;
