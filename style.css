@@ -671,3 +671,19 @@ html {
         padding-top: 2.5rem;
     }
 }
+
+/* Custom Contact artwork V1 */
+
+.contact-panel {
+    background-color: var(--burgundy);
+    background-image: url("contact-hexagons.webp");
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
+/* Remove the old CSS decorative circle */
+
+.contact-panel::after {
+    display: none;
+}
