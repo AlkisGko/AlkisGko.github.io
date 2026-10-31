@@ -206,9 +206,10 @@ nav a:hover {
     background-color: #8C2638;
 }
 
+
 .hero-button-secondary:hover {
-    background-color: rgba(112, 18, 34, 0.06);
-    border-color: var(--burgundy);
+    background-color: #FFFFFF;
+    border-color: var(--gold);
 }
 
 @media (min-width: 801px) {
