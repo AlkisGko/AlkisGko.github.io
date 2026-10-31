@@ -42,3 +42,22 @@ if (artwork && satellite && canHover && !reducedMotion) {
     });
 
 }
+
+/* Copy contact email */
+
+const copyEmailButton = document.querySelector(".contact-copy-email");
+const copyFeedback = document.querySelector(".copy-feedback");
+
+if (copyEmailButton && copyFeedback) {
+    copyEmailButton.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(
+                copyEmailButton.dataset.email
+            );
+
+            copyFeedback.textContent = "Copied!";
+        } catch {
+            copyFeedback.textContent = "Copy unavailable";
+        }
+    });
+}
