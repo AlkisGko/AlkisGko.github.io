@@ -687,3 +687,9 @@ html {
 .contact-panel::after {
     display: none;
 }
+
+/* Keep Contact description clear of artwork */
+
+.contact-description {
+    max-width: 21rem;
+}
