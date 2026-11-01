@@ -836,3 +836,84 @@ html {
     font-size: 0.75rem;
     font-weight: 600;
 }
+
+/* CV download selector */
+
+.cv-selector {
+    position: relative;
+}
+
+.cv-selector > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.cv-selector > summary::-webkit-details-marker {
+    display: none;
+}
+
+.cv-selector > summary::marker {
+    content: "";
+}
+
+/* Dropdown panel */
+
+.cv-options {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: 0;
+    z-index: 20;
+
+    width: min(18rem, 85vw);
+    padding: 0.4rem;
+
+    background: #FFFCF7;
+    border: 1px solid var(--gold);
+    box-shadow: 0 12px 28px rgba(8, 27, 27, 0.15);
+}
+
+/* Individual CV options */
+
+.cv-option {
+    display: block;
+    padding: 0.85rem 1rem;
+    color: var(--ink);
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.cv-option + .cv-option {
+    border-top: 1px solid #E4DCD0;
+}
+
+.cv-option strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.cv-option span {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--teal);
+}
+
+.cv-option:hover {
+    background-color: rgba(35, 105, 107, 0.08);
+}
+
+/* Keyboard accessibility */
+
+.cv-selector > summary:focus-visible,
+.cv-option:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cv-option {
+        transition: none;
+    }
+}
