@@ -94,7 +94,7 @@ if (cvSelector) {
             { transform: "translateY(-3px)" },
             { transform: "translateY(0)" }
         ], {
-            duration: 500,
+            duration: 800,
             easing: "ease-out"
         });
 
@@ -141,7 +141,7 @@ if (cvSelector) {
                     opacity: 0
                 }
             ], {
-                duration: 700,
+                duration: 1100,
                 easing: "cubic-bezier(0.2, 0.8, 0.3, 1)",
                 fill: "forwards"
             });
