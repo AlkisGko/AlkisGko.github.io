@@ -61,3 +61,112 @@ if (copyEmailButton && copyFeedback) {
         }
     });
 }
+
+/* Geometric celebration for CV downloads */
+
+const cvSelector = document.querySelector(".cv-selector");
+
+if (cvSelector) {
+
+    const cvSummary = cvSelector.querySelector("summary");
+    const downloadIcon = cvSummary.querySelector("svg");
+
+    const particleColors = [
+        "#A18A6C", // Antique gold
+        "#23696B", // Teal
+        "#701222", // Burgundy
+        "#081B1B"  // Deep ink
+    ];
+
+    function celebrateDownload() {
+
+        // Respect reduced-motion preferences
+        if (window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches) {
+            return;
+        }
+
+        // Animate the download icon
+        downloadIcon.animate([
+            { transform: "translateY(0)" },
+            { transform: "translateY(5px)" },
+            { transform: "translateY(-3px)" },
+            { transform: "translateY(0)" }
+        ], {
+            duration: 500,
+            easing: "ease-out"
+        });
+
+        // Find the icon's screen position
+        const rect = downloadIcon.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        // Create 12 triangular particles
+        for (let i = 0; i < 12; i++) {
+
+            const particle = document.createElement("span");
+
+            particle.className = "cv-particle";
+            particle.setAttribute("aria-hidden", "true");
+
+            particle.style.backgroundColor =
+                particleColors[i % particleColors.length];
+
+            particle.style.left = `${centerX}px`;
+            particle.style.top = `${centerY}px`;
+
+            document.body.appendChild(particle);
+
+            // Spread particles in different directions
+            const angle = (i / 12) * Math.PI * 2;
+            const distance = 35 + (i % 3) * 14;
+
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+
+            const rotation = i % 2 === 0 ? 180 : -180;
+
+            const animation = particle.animate([
+                {
+                    transform:
+                        "translate(-50%, -50%) rotate(0deg) scale(0.8)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0.3)`,
+                    opacity: 0
+                }
+            ], {
+                duration: 700,
+                easing: "cubic-bezier(0.2, 0.8, 0.3, 1)",
+                fill: "forwards"
+            });
+
+            // Remove each particle after its animation
+            animation.addEventListener("finish", () => {
+                particle.remove();
+            }, { once: true });
+        }
+    }
+
+    // Trigger on either CV selection
+    cvSelector.querySelectorAll(".cv-option").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            celebrateDownload();
+
+            // Close the dropdown without interrupting download
+            requestAnimationFrame(() => {
+                cvSelector.open = false;
+                cvSummary.focus({ preventScroll: true });
+            });
+
+        });
+
+    });
+}
