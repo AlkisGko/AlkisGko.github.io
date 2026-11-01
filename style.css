@@ -917,3 +917,20 @@ html {
         transition: none;
     }
 }
+
+/* Geometric CV download celebration */
+
+.cv-particle {
+    position: fixed;
+    width: 9px;
+    height: 9px;
+
+    clip-path: polygon(
+        50% 0%,
+        100% 100%,
+        0% 100%
+    );
+
+    pointer-events: none;
+    z-index: 9999;
+}
