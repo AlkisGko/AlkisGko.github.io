@@ -170,3 +170,30 @@ if (cvSelector) {
 
     });
 }
+
+/* Track CV download selections */
+
+const trackingEndpoint =
+    "https://script.google.com/macros/s/AKfycbxyGHeYjCj323C_75iuaUISS7fXwGldl03xL89GgdsXLoPQvJaPAiuIUxn6RGQ-hsjS/exec";
+
+document.querySelectorAll(".cv-option").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        const cvType = link.dataset.cv;
+
+        if (!["crm", "analytics"].includes(cvType)) {
+            return;
+        }
+
+        const eventData = new URLSearchParams({
+            event_name: "cv_download_click",
+            cv_type: cvType,
+            source: "hero"
+        });
+
+        navigator.sendBeacon(trackingEndpoint, eventData);
+
+    });
+
+});
