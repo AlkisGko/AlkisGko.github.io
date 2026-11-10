@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244536">
+  <meta name="description" content="Choose how often SAVE POINT sends you better game deal notifications, or unsubscribe from marketing emails.">
+  <title>Manage Notifications | SAVE POINT</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --forest: #244536;
+      --forest-deep: #18372a;
+      --gold: #f2c579;
+      --paper: #fff9ef;
+      --sand: #f3ede1;
+      --ink: #243c32;
+      --muted: #58655e;
+      --line: #e4dbc9;
+      --accent: #701222;
+      --shadow: 0 20px 55px rgba(20, 43, 30, .13);
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(22px, 5vw, 64px) 16px;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(242, 197, 121, .17), transparent 30%),
+        radial-gradient(circle at 88% 90%, rgba(36, 69, 54, .09), transparent 33%),
+        var(--sand);
+    }
+    .shell { max-width: 640px; margin: 0 auto; }
+    .page-card {
+      overflow: hidden;
+      border: 1px solid rgba(36, 69, 54, .13);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      background: var(--paper);
+    }
+    .brand-header {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 35px 25px 32px;
+      text-align: center;
+      background: var(--forest);
+      border-bottom: 5px solid #c29a58;
+    }
+    .brand-header::before, .brand-header::after {
+      content: "✦";
+      position: absolute;
+      top: 29%;
+      font-size: 1.45rem;
+      color: var(--gold);
+      opacity: .85;
+      z-index: -1;
+    }
+    .brand-header::before { left: clamp(14px, 9%, 75px); }
+    .brand-header::after { right: clamp(14px, 9%, 75px); }
+    .brand-header .label {
+      margin: 0 0 12px;
+      color: #eee1c6;
+      font-size: .68rem;
+      font-weight: 750;
+      letter-spacing: .25em;
+    }
+    .brand {
+      margin: 0;
+      color: #fff9ef;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      letter-spacing: .045em;
+      line-height: 1.1;
+    }
+    .brand span { color: var(--gold); }
+    .brand-tagline {
+      margin: 14px 0 0;
+      font-size: .72rem;
+      letter-spacing: .17em;
+      font-weight: 700;
+      color: #eee1c6;
+    }
+    .content { padding: clamp(24px, 6vw, 42px); }
+    .section-eyebrow {
+      margin: 0 0 8px;
+      color: #986c32;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      color: var(--forest-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 5vw, 2rem);
+      line-height: 1.23;
+    }
+    .intro { margin: 15px 0 25px; line-height: 1.65; color: var(--muted); }
+    .intro strong { color: var(--forest-deep); }
+    fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
+    legend {
+      padding: 0;
+      margin-bottom: 12px;
+      color: var(--forest-deep);
+      font-size: .96rem;
+      font-weight: 750;
+    }
+    .choices { display: grid; gap: 9px; }
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 15px 16px;
+      border-radius: 9px;
+      border: 1.5px solid var(--line);
+      background: #fffcf7;
+      cursor: pointer;
+      transition: border-color .16s ease, background-color .16s ease;
+    }
+    .choice:hover { border-color: #9aaf9b; }
+    .choice:has(input:checked) {
+      border-color: var(--forest);
+      background: #eff4ec;
+    }
+    .choice:has(input:focus-visible) { outline: 3px solid #d4a646; outline-offset: 2px; }
+    .choice input {
+      width: 19px;
+      height: 19px;
+      margin: 1px 0 0;
+      flex: 0 0 auto;
+      accent-color: var(--forest);
+      cursor: pointer;
+    }
+    .choice-main { display: block; color: #203b2f; font-size: .97rem; font-weight: 720; line-height: 1.35; }
+    .choice-desc { display: block; margin-top: 4px; font-size: .82rem; color: #637067; line-height: 1.5; }
+    .unsubscribe-area { margin-top: 17px; padding-top: 18px; border-top: 1px solid #d7c8b1; }
+    .unsubscribe-area .choice { border-color: #dfcaca; }
+    .unsubscribe-area .choice:has(input:checked) { border-color: var(--accent); background: #fbefee; }
+    .unsubscribe-area .choice input { accent-color: var(--accent); }
+    .unsubscribe-area .choice-main { color: var(--accent); }
+    .submit {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      margin-top: 25px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--forest);
+      color: #fff9ef;
+      font: inherit;
+      font-weight: 760;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .16s ease, transform .16s ease;
+    }
+    .submit:hover { background: var(--forest-deep); }
+    .submit:active { transform: translateY(1px); }
+    .submit:focus-visible { outline: 3px solid #d4a646; outline-offset: 3px; }
+    .smallprint { margin: 14px 0 0; text-align: center; color: #69726b; font-size: .79rem; line-height: 1.5; }
+    .confirmation { text-align: center; padding: 24px 0 16px; }
+    .confirmation[hidden], .preferences[hidden] { display: none; }
+    .check {
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 21px;
+      border-radius: 50%;
+      border: 2px solid #aec3a6;
+      background: #e9f2e5;
+      color: var(--forest);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .confirmation h2 { margin-bottom: 14px; }
+    .confirmation p { color: var(--muted); line-height: 1.65; }
+    .selected-summary { color: var(--forest-deep) !important; font-weight: 760; }
+    .demo-notice { margin: 20px 0 0; padding: 13px; background: #f3eee3; border-radius: 7px; font-size: .85rem; }
+    .fine-footer { margin: 18px 0 0; text-align: center; color: #69766e; font-size: .8rem; line-height: 1.6; }
+    @media (max-width: 420px) {
+      body { padding: 14px 10px; }
+      .brand-header { padding: 30px 12px 26px; }
+      .brand-header::before, .brand-header::after { font-size: .95rem; }
+      .choice { padding: 13px 12px; }
+      .content { padding: 23px 19px 27px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="page-card" aria-label="SAVE POINT notification preferences">
+      <header class="brand-header">
+        <p class="label">YOUR GAMING WISHLIST COMPANION</p>
+        <h1 class="brand"><span>SAVE</span> POINT</h1>
+        <p class="brand-tagline">YOUR ADVENTURE, YOUR RULES.</p>
+      </header>
+
+      <div class="content">
+        <div class="preferences" id="preferences">
+          <p class="section-eyebrow">Your account · Notifications</p>
+          <h2>Manage your notifications</h2>
+          <p class="intro">Choose how often you'd like to hear from us. <strong>We'll only contact you when there's a better deal worth sharing.</strong> No improvements, no emails!</p>
+
+          <form id="preference-form">
+            <fieldset>
+              <legend>How often would you like updates?</legend>
+              <div class="choices">
+                <label class="choice">
+                  <input type="radio" name="frequency" value="whenever" checked>
+                  <span><span class="choice-main">Whenever a better deal is found</span><span class="choice-desc">Get an alert when our price checks spot a qualifying deal.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="weekly">
+                  <span><span class="choice-main">Weekly summary</span><span class="choice-desc">A round-up of qualifying deals, at most once a week.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="fortnightly">
+                  <span><span class="choice-main">Every two weeks</span><span class="choice-desc">A quieter round-up, at most every 14 days.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="monthly">
+                  <span><span class="choice-main">Monthly summary</span><span class="choice-desc">A round-up of qualifying deals, at most once a month.</span></span>
+                </label>
+              </div>
+
+              <!-- Same radio name = mutually exclusive with every frequency above. -->
+              <div class="unsubscribe-area">
+                <label class="choice">
+                  <input type="radio" name="frequency" value="unsubscribe">
+                  <span><span class="choice-main">Unsubscribe from all marketing emails</span><span class="choice-desc">Stop receiving SAVE POINT deals and promotional updates.</span></span>
+                </label>
+              </div>
+            </fieldset>
+            <button type="submit" class="submit">Submit</button>
+            <p class="smallprint">You can change your preferences at any time.</p>
+          </form>
+        </div>
+
+        <!-- Simulated submission; no real subscriber record is updated. -->
+        <div class="confirmation" id="confirmation" hidden aria-live="polite" tabindex="-1">
+          <div class="check" aria-hidden="true">✓</div>
+          <h2 id="confirmation-title">Preference selected</h2>
+          <p class="selected-summary" id="confirmation-selection"></p>
+          <p id="confirmation-message"></p>
+          <p class="demo-notice"><strong>Portfolio demonstration:</strong> This page shows the intended preference-centre flow. No real subscription settings have been changed.</p>
+        </div>
+      </div>
+    </section>
+    <p class="fine-footer">SAVE POINT is a fictional gaming deals service created as a CRM portfolio project.</p>
+  </main>
+  <script>
+    (function () {
+      'use strict';
+      const form = document.getElementById('preference-form');
+      const preferences = document.getElementById('preferences');
+      const confirmation = document.getElementById('confirmation');
+      const confirmationTitle = document.getElementById('confirmation-title');
+      const confirmationSelection = document.getElementById('confirmation-selection');
+      const confirmationMessage = document.getElementById('confirmation-message');
+      const choices = {
+        whenever: 'Whenever a better deal is found',
+        weekly: 'Weekly summary',
+        fortnightly: 'Every two weeks',
+        monthly: 'Monthly summary',
+        unsubscribe: 'Unsubscribe from all marketing emails'
+      };
+
+      // A footer Unsubscribe link can use ?action=unsubscribe to preselect it.
+      // No customer email or other personal data is needed in the demo URL.
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('action') === 'unsubscribe') {
+        form.querySelector('input[value="unsubscribe"]').checked = true;
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const selection = new FormData(form).get('frequency');
+        if (!Object.prototype.hasOwnProperty.call(choices, selection)) return;
+
+        if (selection === 'unsubscribe') {
+          confirmationTitle.textContent = 'Unsubscribe selected';
+          confirmationSelection.textContent = choices[selection];
+          confirmationMessage.textContent = 'In the live service, this would stop all SAVE POINT marketing emails.';
+        } else {
+          confirmationTitle.textContent = 'Preference selected';
+          confirmationSelection.textContent = choices[selection];
+          confirmationMessage.textContent = 'In the live service, you would only receive emails when a qualifying better deal is available, subject to your selected frequency.';
+        }
+
+        preferences.hidden = true;
+        confirmation.hidden = false;
+        confirmation.focus();
+      });
+    }());
+  </script>
+</body>
+</html>
