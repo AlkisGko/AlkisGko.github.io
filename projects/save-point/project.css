@@ -161,3 +161,26 @@ h3 { line-height: 1.3; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* SAVE POINT Welcome email: responsive screenshots with a CSS-only view switch */
+.email-preview-area { min-width: 0; position: relative; }
+.preview-radio { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.preview-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; }
+.preview-toolbar-title { color: var(--burgundy); letter-spacing: .12em; font-size: 10px; font-weight: 700; }
+.preview-tabs { display: inline-flex; gap: 0; border: 1px solid var(--line); background: white; padding: 4px; }
+.preview-tabs label { font: 600 11px/1.3 Inter, Arial, sans-serif; color: #52615C; padding: 10px 16px; cursor: pointer; transition: background .16s, color .16s; }
+#preview-desktop:checked ~ .preview-toolbar label[for="preview-desktop"],
+#preview-mobile:checked ~ .preview-toolbar label[for="preview-mobile"] { background: var(--forest); color: #fff; }
+#preview-desktop:focus-visible ~ .preview-toolbar label[for="preview-desktop"],
+#preview-mobile:focus-visible ~ .preview-toolbar label[for="preview-mobile"] { outline: 2px solid var(--teal); outline-offset: 3px; }
+.email-preview-area .preview-frame { display: block; min-height: 0; max-height: 780px; overflow: auto; padding: 20px; text-align: center; scrollbar-color: #a8a092 #e9e5dd; }
+.render-preview { width: min(100%, 582px); margin: 0 auto; box-shadow: 0 7px 24px rgba(8,27,27,.15); }
+.render-preview img { display: block; width: 100%; height: auto; }
+.render-preview--mobile { display: none; max-width: 345px; }
+#preview-mobile:checked ~ .preview-frame .render-preview--desktop { display: none; }
+#preview-mobile:checked ~ .preview-frame .render-preview--mobile { display: block; }
+.preview-caption { color: #69716A; font-size: 11px; line-height: 1.7; margin: 12px 0 0; }
+@media (max-width: 730px) {
+  .email-preview-area .preview-frame { padding: 13px; max-height: 660px; }
+  .preview-tabs label { padding: 9px 12px; }
+}

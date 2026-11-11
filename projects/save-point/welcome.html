@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Welcome email case study from the SAVE POINT CRM portfolio campaign by Alkis Gkogkas.">
-  <title>Welcome Email SAVE POINT | Alkis Gkogkas</title>
+  <title>Welcome Email — SAVE POINT | Alkis Gkogkas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -40,20 +40,33 @@
       <div class="shell section-block">
         <div class="section-heading section-heading-row">
           <div><p class="eyebrow">01 / THE EMAIL</p><h2 id="creative-title">The creative.</h2></div>
-          <p class="section-aside">A representative preview will sit here so the finished creative is visible before the technical details.</p>
+          <p class="section-aside">Desktop and mobile renders from our Salesforce Marketing Cloud test. Select either view to examine the finished creative.</p>
         </div>
         <div class="email-feature-grid">
-          <div class="preview-frame">
-            <!-- TODO: Replace this placeholder with an image or safe static HTML preview of the finished email. -->
-            <div class="email-preview-placeholder">
-              <div class="fake-mail-top"><span class="tiny-star">✦</span><strong><span>SAVE</span> POINT</strong></div>
-              <div class="fake-mail-inner">
-                <span class="preview-label">RENDERED EMAIL PREVIEW / TO ADD</span>
-                <h3>Welcome to<br>SAVE POINT.</h3>
-                <p>A screenshot of the completed Salesforce Marketing Cloud email will appear here.</p>
-                <span class="fake-button">Built in SFMC Playground</span>
+          <div class="email-preview-area">
+            <!-- The CSS-only switch shows one screenshot at a time. -->
+            <input class="preview-radio" type="radio" id="preview-desktop" name="email-preview-mode" checked>
+            <input class="preview-radio" type="radio" id="preview-mobile" name="email-preview-mode">
+            <div class="preview-toolbar">
+              <span class="preview-toolbar-title">TEST RENDER / SONYA</span>
+              <div class="preview-tabs" role="group" aria-label="Email preview size">
+                <label for="preview-desktop">Desktop</label>
+                <label for="preview-mobile">Mobile</label>
               </div>
             </div>
+            <div class="preview-frame">
+              <div class="render-preview render-preview--desktop">
+                <a href="save-point-welcome-desktop.webp" target="_blank" rel="noopener" aria-label="Open full-sized desktop email preview in a new tab">
+                  <img src="save-point-welcome-desktop.webp" alt="Desktop rendering of the SAVE POINT welcome email: illustrated sleeping cat header, personalised greeting to Sonya, wishlist CTA, three feature columns, second CTA and footer." width="582" height="1206" loading="lazy">
+                </a>
+              </div>
+              <div class="render-preview render-preview--mobile">
+                <a href="save-point-welcome-mobile.webp" target="_blank" rel="noopener" aria-label="Open full-sized mobile email preview in a new tab">
+                  <img src="save-point-welcome-mobile.webp" alt="Mobile rendering of the SAVE POINT welcome email, with its three illustrated feature columns stacked vertically below the greeting and CTA." width="345" height="1425" loading="lazy">
+                </a>
+              </div>
+            </div>
+            <p class="preview-caption">Previewed with a fictional test customer, Sonya. Switch views to compare the responsive layout, or click the image to see it full-sized.</p>
           </div>
           <aside class="email-sidebar">
             <div class="sidebar-block"><p class="eyebrow">OBJECTIVE</p><h3>Make the first email useful.</h3><p>Introduce the wishlist service, explain the three-step value proposition and invite new players to save their first game.</p></div>
