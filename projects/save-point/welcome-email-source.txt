@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAVE POINT | Welcome</title>
+
+  <!--
+    SAVE POINT — Welcome Email (portfolio demonstration)
+
+    Suggested subject: 🎮 Welcome to SAVE POINT!
+    Preheader: Your wishlist adventure begins
+
+    AmpSend / SFMC-style dependencies:
+    - Data Extension: Customers (Email, First_Name)
+    - Reusable Content Blocks: header, footer
+      Each Content Block outputs complete <tr>...</tr> row(s).
+    - CTA destination is intentionally a placeholder; the fictional
+      wishlist application is outside this demo's scope.
+    - The footer Content Block contains links to the demo Preference Centre.
+
+    Keep styling inline where possible for HTML email compatibility.
+  -->
+  <style>
+    /* Stack the three quest columns on narrow screens. */
+    @media only screen and (max-width:480px) {
+      .quest-column {
+        display:block !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        padding:16px 8px !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; background-color:#F3EDE1;">
+
+  <!-- Preheader: preview text, hidden in the open email. -->
+  <div style="display:none !important; visibility:hidden; opacity:0; color:transparent; height:0; width:0; overflow:hidden; mso-hide:all;">
+    Your wishlist adventure begins
+  </div>
+
+  <!--
+    1. AMPscript personalisation
+    Look up the first name by recipient email. Use a friendly fallback
+    for missing email addresses, missing records or blank first names.
+  -->
+  %%[
+    VAR @email, @firstName, @name
+
+    SET @name = "Adventurer"
+    SET @email = AttributeValue("EmailAddress")
+
+    IF NOT Empty(@email) THEN
+      SET @firstName = Lookup(
+        "Customers",
+        "First_Name",
+        "Email",
+        @email
+      )
+
+      IF NOT Empty(@firstName) THEN
+        SET @firstName = Trim(@firstName)
+
+        IF NOT Empty(@firstName) THEN
+          SET @name = ProperCase(@firstName)
+        ENDIF
+      ENDIF
+    ENDIF
+  ]%%
+
+  <!-- 2. Full-width email canvas -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3EDE1">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <!-- MS Outlook desktop: enforce a fixed 600px container width. -->
+        <!--[if mso]>
+        <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="600">
+        <![endif]-->
+
+        <!-- 3. Main container: responsive outside Outlook, max-width 600px. -->
+        <table
+          role="presentation"
+          width="100%"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+          bgcolor="#FFF9EF"
+          style="width:100%; max-width:600px; background-color:#FFF9EF;"
+        >
+
+          <!-- 4. Illustrated header, injected as complete table row(s). -->
+          %%=ContentBlockByName("header")=%%
+
+          <!-- 5. Welcome message -->
+          <tr>
+            <td
+              align="center"
+              bgcolor="#FFF9EF"
+              style="padding:24px 24px 0; background-color:#FFF9EF; font-family:Arial,sans-serif;"
+            >
+              <p style="margin:0 0 4px; font-size:20px; color:#244536;">Hey %%=v(@name)=%%!</p>
+
+              <h1 style="margin:0; font-size:22px; line-height:36px; color:#244536;">
+                Welcome to SAVE POINT!
+              </h1>
+
+              <p style="margin:12px 0 0; font-size:16px; line-height:24px; color:#333333;">
+                The easy way to keep track of games you want to
+                play and get notified when they're available at a better price.
+              </p>
+            </td>
+          </tr>
+
+          <!-- 6. Primary wishlist CTA (fictional destination). -->
+          <tr>
+            <td
+              align="center"
+              bgcolor="#FFF9EF"
+              style="padding:24px 32px 32px; background-color:#FFF9EF;"
+            >
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td
+                    align="center"
+                    bgcolor="#D9795B"
+                    style="background-color:#D9795B; border-radius:6px;"
+                  >
+                    <a
+                      href="https://example.com"
+                      style="display:block; padding:14px 24px; font-family:Arial,sans-serif; font-size:16px; font-weight:bold; color:#244536; text-decoration:none;"
+                    >Start your wishlist</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 7. How it works: illustrated sign and three responsive steps. -->
+          <tr>
+            <td
+              align="left"
+              bgcolor="#F6E8D2"
+              style="padding:32px; background-color:#F6E8D2; font-family:Arial,sans-serif; color:#244536; text-align:left;"
+            >
+              <!-- Text appears as alt text when the graphic cannot load. -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="padding-bottom:12px;">
+                    <img
+                      src="https://alkisgkogkas.co.uk/assets/savepoint/quest-sign.png"
+                      alt="Your quest in 3 steps"
+                      width="520"
+                      style="display:block; width:100%; max-width:520px; height:auto; border:0;"
+                    />
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <!-- Step 1: Wishlist -->
+                  <td
+                    class="quest-column"
+                    width="33%"
+                    align="center"
+                    valign="top"
+                    style="padding:8px; font-family:Arial,sans-serif;"
+                  >
+                    <img
+                      src="https://alkisgkogkas.co.uk/assets/savepoint/icon-controller.png"
+                      alt="Game controller icon"
+                      width="90"
+                      style="display:block; width:90px; max-width:90px; height:auto; margin:0 auto 12px; border:0;"
+                    />
+                    <p style="margin:0 0 8px; font-size:16px; font-weight:bold; color:#244536;">
+                      Save your games
+                    </p>
+                    <p style="margin:0; font-size:14px; line-height:21px; color:#333333;">
+                      Add games you'd love to play to your wishlist.
+                    </p>
+                  </td>
+
+                  <!-- Step 2: Price tracking -->
+                  <td
+                    class="quest-column"
+                    width="33%"
+                    align="center"
+                    valign="top"
+                    style="padding:8px; font-family:Arial,sans-serif;"
+                  >
+                    <img
+                      src="https://alkisgkogkas.co.uk/assets/savepoint/icon-binoculars.png"
+                      alt="Binoculars icon"
+                      width="90"
+                      style="display:block; width:90px; max-width:90px; height:auto; margin:0 auto 12px; border:0;"
+                    />
+                    <p style="margin:0 0 8px; font-size:16px; font-weight:bold; color:#244536;">
+                      We keep watch
+                    </p>
+                    <p style="margin:0; font-size:14px; line-height:21px; color:#333333;">
+                      We track prices across different stores.
+                    </p>
+                  </td>
+
+                  <!-- Step 3: Better-deal notification -->
+                  <td
+                    class="quest-column"
+                    width="33%"
+                    align="center"
+                    valign="top"
+                    style="padding:8px; font-family:Arial,sans-serif;"
+                  >
+                    <img
+                      src="https://alkisgkogkas.co.uk/assets/savepoint/icon-chest.png"
+                      alt="Treasure chest icon"
+                      width="90"
+                      style="display:block; width:90px; max-width:90px; height:auto; margin:0 auto 12px; border:0;"
+                    />
+                    <p style="margin:0 0 8px; font-size:16px; font-weight:bold; color:#244536;">
+                      You save!
+                    </p>
+                    <p style="margin:0; font-size:14px; line-height:21px; color:#333333;">
+                      Get notified when a better deal appears.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 8. Repeat CTA after explaining the three-step journey. -->
+          <tr>
+            <td
+              align="center"
+              bgcolor="#FFF9EF"
+              style="padding:0 32px 40px; background-color:#FFF9EF; font-family:Arial,sans-serif;"
+            >
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+                <!-- Keep the original spacing above this button. -->
+                <tr>
+                  <td height="24" style="font-size:0; line-height:0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                    bgcolor="#D9795B"
+                    style="background-color:#D9795B; border-radius:6px;"
+                  >
+                    <a
+                      href="https://example.com"
+                      style="display:block; padding:14px 24px; font-family:Arial,sans-serif; font-size:16px; font-weight:bold; color:#244536; text-decoration:none;"
+                    >Start your wishlist</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 9. Shared footer, including demo preference-centre links. -->
+          %%=ContentBlockByName("footer")=%%
+
+        </table>
+
+        <!-- Close Outlook-only fixed-width wrapper. -->
+        <!--[if mso]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
