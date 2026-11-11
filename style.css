@@ -945,3 +945,15 @@ a.project-card:focus-visible {
     outline: 2px solid #A18A6C;
     outline-offset: 5px;
 }
+
+/* SAVE POINT project thumbnail */
+.project-visual--crm {
+    background: #193B2D url("save-point-cover.png") center / contain no-repeat;
+    overflow: hidden;
+}
+
+/* Remove the old decorative circle */
+.project-visual--crm::before,
+.project-visual--crm::after {
+    content: none;
+}
