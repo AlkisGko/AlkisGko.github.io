@@ -40,7 +40,7 @@
       <div class="shell section-block">
         <div class="section-heading section-heading-row">
           <div><p class="eyebrow">01 / THE EMAIL</p><h2 id="creative-title">The creative.</h2></div>
-          <p class="section-aside">We'll place the real email preview here next, so visitors can see the output before reading any code.</p>
+          <p class="section-aside">A representative preview will sit here so the finished creative is visible before the technical details.</p>
         </div>
         <div class="email-feature-grid">
           <div class="preview-frame">
@@ -48,17 +48,17 @@
             <div class="email-preview-placeholder">
               <div class="fake-mail-top"><span class="tiny-star">✦</span><strong><span>SAVE</span> POINT</strong></div>
               <div class="fake-mail-inner">
-                <span class="preview-label">EMAIL PREVIEW PLACEHOLDER</span>
+                <span class="preview-label">RENDERED EMAIL PREVIEW / TO ADD</span>
                 <h3>Welcome to<br>SAVE POINT.</h3>
-                <p>Our actual email creative will appear here.</p>
-                <span class="fake-button">Preview coming next</span>
+                <p>A screenshot of the completed Salesforce Marketing Cloud email will appear here.</p>
+                <span class="fake-button">Built in SFMC Playground</span>
               </div>
             </div>
           </div>
           <aside class="email-sidebar">
-            <div class="sidebar-block"><p class="eyebrow">OBJECTIVE</p><h3>Make a good first impression.</h3><p>Introduce the service and guide new subscribers towards their first useful action.</p></div>
-            <div class="sidebar-block"><p class="eyebrow">AUDIENCE &amp; TRIGGER</p><p class="edit-note">[Add the precise entry criteria, audience and trigger.]</p></div>
-            <div class="sidebar-block"><p class="eyebrow">PERSONALISATION</p><p>Uses the customer’s first name when available, with a friendly fallback when it isn't.</p></div>
+            <div class="sidebar-block"><p class="eyebrow">OBJECTIVE</p><h3>Make the first email useful.</h3><p>Introduce the wishlist service, explain the three-step value proposition and invite new players to save their first game.</p></div>
+            <div class="sidebar-block"><p class="eyebrow">AUDIENCE &amp; TRIGGER</p><p>Designed for newly registered, opted-in customers. The welcome creative was built and tested with sample customer records in Salesforce Marketing Cloud Playground; the full automated journey is a future phase of this fictional project.</p></div>
+            <div class="sidebar-block"><p class="eyebrow">PERSONALISATION</p><p>Looks up the first name by email address, formats it with <code>ProperCase()</code>, and greets customers without a name as “Adventurer”.</p></div>
           </aside>
         </div>
       </div>
@@ -68,9 +68,12 @@
       <div class="shell section-block">
         <div class="section-heading"><p class="eyebrow">02 / DESIGN &amp; LOGIC</p><h2 id="choices-title">A few decisions behind the build.</h2></div>
         <div class="decision-grid">
-          <div class="decision-item"><span class="decision-n">01</span><h3>Personal greeting</h3><p class="edit-note">[Explain the AMPscript lookup, ProperCase and Adventurer fallback.]</p></div>
-          <div class="decision-item"><span class="decision-n">02</span><h3>Reusable components</h3><p class="edit-note">[Explain the header, footer and Content Builder blocks.]</p></div>
-          <div class="decision-item"><span class="decision-n">03</span><h3>Responsive email layout</h3><p class="edit-note">[Explain the table layout, inline styles and mobile behaviour.]</p></div>
+          <div class="decision-item"><span class="decision-n">01</span><h3>Personal, not fragile</h3><p>A Customers Data Extension supplies the first name through AMPscript. Missing names have a deliberate “Adventurer” fallback, so personalisation never results in an awkward blank greeting.</p></div>
+          <div class="decision-item"><span class="decision-n">02</span><h3>Built for reuse</h3><p>The SAVE POINT header and footer are separate Content Builder blocks. They keep campaign branding consistent and make future journey emails easier to maintain.</p></div>
+          <div class="decision-item"><span class="decision-n">03</span><h3>Email-client reality</h3><p>Table-based layout and inline CSS prioritise compatibility, including an Outlook-specific fixed-width wrapper. The three feature columns stack on narrow mobile screens.</p></div>
+          <div class="decision-item"><span class="decision-n">04</span><h3>One clear next step</h3><p>“Start your wishlist” appears before and after the how-it-works explanation: one CTA for readers who are ready immediately, and one for those who need context.</p></div>
+          <div class="decision-item"><span class="decision-n">05</span><h3>Creative with a purpose</h3><p>The illustrated quest motif makes the steps approachable without hiding the product benefit: save games, let SAVE POINT monitor prices, and hear about worthwhile deals.</p></div>
+          <div class="decision-item"><span class="decision-n">06</span><h3>Readable by design</h3><p>Image alternative text, a hidden preheader and carefully chosen text colours make the email understandable beyond its decorative artwork.</p></div>
         </div>
       </div>
     </section>
@@ -78,13 +81,23 @@
     <section class="section-white" aria-labelledby="technical-title">
       <div class="shell section-block">
         <div class="section-heading"><p class="eyebrow">03 / UNDER THE HOOD</p><h2 id="technical-title">The interesting bits.</h2></div>
-        <p class="technical-intro">We'll highlight only the code that demonstrates a useful decision. The full source can live in GitHub.</p>
+        <p class="technical-intro">The most useful piece of logic is the first-name lookup and its fallback. Everything else in the email is designed around robust HTML rendering and reusable components.</p>
         <div class="snippet-box">
-          <div class="snippet-head"><span>AMPscript / HTML</span><span>Code excerpt coming next</span></div>
-          <pre><code>/* We'll add a real, explained code snippet here. */</code></pre>
+          <div class="snippet-head"><span>AMPscript / HTML</span><span>First-name lookup with fallback</span></div>
+          <pre><code>%%[
+  VAR @name, @email
+  SET @email = AttributeValue(&quot;EmailAddress&quot;)
+  SET @name = Lookup(&quot;Customers&quot;, &quot;First_Name&quot;, &quot;Email&quot;, @email)
+  SET @name = ProperCase(@name)
+  IF Empty(@name) THEN
+    SET @name = &quot;Adventurer&quot;
+  ENDIF
+]%%
+
+&lt;p&gt;Hey %%=v(@name)=%%!&lt;/p&gt;</code></pre>
         </div>
         <div class="source-note">
-          <p><strong>Full source:</strong> We'll link the finished email's source file here once its repository location is confirmed.</p>
+          <p><strong>Implementation note:</strong> The original email uses two reusable SFMC Content Builder blocks (header and footer), plus AMPscript that runs when the email is rendered in Salesforce Marketing Cloud.</p>
           <p class="source-small">AMPscript runs in Salesforce Marketing Cloud, so the portfolio preview will show an example output rather than execute AMPscript in the browser.</p>
         </div>
       </div>
