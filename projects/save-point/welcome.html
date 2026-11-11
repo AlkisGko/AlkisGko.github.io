@@ -9,6 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project.css">
+  <style>
+    .email-creative-heading { justify-content: flex-start; }
+    .email-creative-heading .section-aside {
+      max-width: 550px;
+      margin: 18px 0 0;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -32,15 +39,18 @@
     <section class="email-hero shell" aria-labelledby="email-title">
       <p class="eyebrow">SAVE POINT <span class="eyebrow-divider">/</span> EMAIL 01 OF 03</p>
       <h1 id="email-title">A welcome worth <em>opening.</em></h1>
-      <p class="hero-lead">A warm first introduction, personalised through Salesforce Marketing Cloud.</p>
-      <div class="tag-row"><span>Welcome journey</span><span>AMPscript</span><span>HTML email</span><span>Content Builder</span></div>
+      <p class="hero-lead">A playful welcome email prototype, built with responsive HTML and AMPscript personalisation logic.</p>
+      <div class="tag-row"><span>Welcome journey</span><span>AMPscript</span><span>HTML email</span><span>Reusable content</span></div>
     </section>
 
     <section class="section-white" aria-labelledby="creative-title">
       <div class="shell section-block">
-        <div class="section-heading section-heading-row">
-          <div><p class="eyebrow">01 / THE EMAIL</p><h2 id="creative-title">The creative.</h2></div>
-          <p class="section-aside">Desktop and mobile renders from our Salesforce Marketing Cloud test. Select either view to examine the finished creative.</p>
+        <div class="section-heading section-heading-row email-creative-heading">
+          <div>
+            <p class="eyebrow">01 / THE EMAIL</p>
+            <h2 id="creative-title">The creative.</h2>
+            <p class="section-aside">Desktop and mobile previews of the finished prototype. Switch views to compare the layouts.</p>
+          </div>
         </div>
         <div class="email-feature-grid">
           <div class="email-preview-area">
@@ -48,7 +58,7 @@
             <input class="preview-radio" type="radio" id="preview-desktop" name="email-preview-mode" checked>
             <input class="preview-radio" type="radio" id="preview-mobile" name="email-preview-mode">
             <div class="preview-toolbar">
-              <span class="preview-toolbar-title">TEST RENDER / SONYA</span>
+              <span class="preview-toolbar-title">SAMPLE PREVIEW / SONYA</span>
               <div class="preview-tabs" role="group" aria-label="Email preview size">
                 <label for="preview-desktop">Desktop</label>
                 <label for="preview-mobile">Mobile</label>
@@ -70,8 +80,8 @@
           </div>
           <aside class="email-sidebar">
             <div class="sidebar-block"><p class="eyebrow">OBJECTIVE</p><h3>Make the first email useful.</h3><p>Introduce the wishlist service, explain the three-step value proposition and invite new players to save their first game.</p></div>
-            <div class="sidebar-block"><p class="eyebrow">AUDIENCE &amp; TRIGGER</p><p>Designed for newly registered, opted-in customers. The welcome creative was built and tested with sample customer records in Salesforce Marketing Cloud Playground; the full automated journey is a future phase of this fictional project.</p></div>
-            <div class="sidebar-block"><p class="eyebrow">PERSONALISATION</p><p>Looks up the first name by email address, formats it with <code>ProperCase()</code>, and greets customers without a name as “Adventurer”.</p></div>
+            <div class="sidebar-block"><p class="eyebrow">AUDIENCE &amp; TRIGGER</p><p>Intended for newly registered, opted-in customers. Sonya is a fictional sample recipient used to demonstrate the creative. The audience selection, trigger and automated journey are proposed rather than deployed.</p></div>
+            <div class="sidebar-block"><p class="eyebrow">PERSONALISATION</p><p>The AMPscript is written to look up a first name by email address, format it with <code>ProperCase()</code>, and use “Adventurer” when no name is available.</p></div>
           </aside>
         </div>
       </div>
@@ -81,8 +91,8 @@
       <div class="shell section-block">
         <div class="section-heading"><p class="eyebrow">02 / DESIGN &amp; LOGIC</p><h2 id="choices-title">A few decisions behind the build.</h2></div>
         <div class="decision-grid">
-          <div class="decision-item"><span class="decision-n">01</span><h3>Personal, not fragile</h3><p>A Customers Data Extension supplies the first name through AMPscript. Missing names have a deliberate “Adventurer” fallback, so personalisation never results in an awkward blank greeting.</p></div>
-          <div class="decision-item"><span class="decision-n">02</span><h3>Built for reuse</h3><p>The SAVE POINT header and footer are separate Content Builder blocks. They keep campaign branding consistent and make future journey emails easier to maintain.</p></div>
+          <div class="decision-item"><span class="decision-n">01</span><h3>Personal, not fragile</h3><p>The AMPscript is designed to retrieve a first name from a Customers data table. Missing names have a deliberate “Adventurer” fallback, avoiding an awkward blank greeting.</p></div>
+          <div class="decision-item"><span class="decision-n">02</span><h3>Built for reuse</h3><p>The template references separate header and footer content blocks to keep branding consistent and make future journey emails easier to maintain.</p></div>
           <div class="decision-item"><span class="decision-n">03</span><h3>Email-client reality</h3><p>Table-based layout and inline CSS prioritise compatibility, including an Outlook-specific fixed-width wrapper. The three feature columns stack on narrow mobile screens.</p></div>
           <div class="decision-item"><span class="decision-n">04</span><h3>One clear next step</h3><p>“Start your wishlist” appears before and after the how-it-works explanation: one CTA for readers who are ready immediately, and one for those who need context.</p></div>
           <div class="decision-item"><span class="decision-n">05</span><h3>Creative with a purpose</h3><p>The illustrated quest motif makes the steps approachable without hiding the product benefit: save games, let SAVE POINT monitor prices, and hear about worthwhile deals.</p></div>
@@ -94,7 +104,7 @@
     <section class="section-white" aria-labelledby="technical-title">
       <div class="shell section-block">
         <div class="section-heading"><p class="eyebrow">03 / UNDER THE HOOD</p><h2 id="technical-title">The interesting bits.</h2></div>
-        <p class="technical-intro">The most useful piece of logic is the first-name lookup and its fallback. Everything else in the email is designed around robust HTML rendering and reusable components.</p>
+        <p class="technical-intro">The key personalisation example is the first-name lookup and its fallback. The layout also demonstrates table-based email HTML and reusable components.</p>
         <div class="snippet-box">
           <div class="snippet-head"><span>AMPscript / HTML</span><span>First-name lookup with fallback</span></div>
           <pre><code>%%[
@@ -110,8 +120,8 @@
 &lt;p&gt;Hey %%=v(@name)=%%!&lt;/p&gt;</code></pre>
         </div>
         <div class="source-note">
-          <p><strong>Implementation note:</strong> The original email uses two reusable SFMC Content Builder blocks (header and footer), plus AMPscript that runs when the email is rendered in Salesforce Marketing Cloud.</p>
-          <p class="source-small">AMPscript runs in Salesforce Marketing Cloud, so the portfolio preview will show an example output rather than execute AMPscript in the browser.</p>
+          <p><strong>Implementation note:</strong> The prototype HTML references reusable header/footer blocks and contains AMPscript intended for a compatible marketing platform. It has not been deployed or tested in Salesforce Marketing Cloud.</p>
+          <p class="source-small">The images above are static previews with fictional customer data. This website does not execute AMPscript or send emails.</p>
         </div>
       </div>
     </section>
