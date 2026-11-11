@@ -145,5 +145,25 @@
     </section>
   </main>
   <footer class="site-footer"><div class="shell footer-inner"><span>© Alkis Gkogkas · Independent portfolio project</span><a href="../../index.html#projects">Back to all projects ↑</a></div></footer>
+
+<script>
+const sourcePanel = document.getElementById("email-source");
+const sourceCode = document.getElementById("email-source-code");
+
+sourcePanel.addEventListener("toggle", async () => {
+    if (!sourcePanel.open || sourcePanel.dataset.loaded) return;
+
+    try {
+        const response = await fetch("welcome-email-source.txt");
+        if (!response.ok) throw new Error("Could not load source");
+
+        sourceCode.textContent = await response.text();
+        sourcePanel.dataset.loaded = "true";
+    } catch (error) {
+        sourceCode.textContent = "Unable to load source code.";
+    }
+});
+</script>
+
 </body>
 </html>
